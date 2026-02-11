@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daily Thoughts</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        .firebase-status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .firebase-connected {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body class="diary-page">
+
+<h1>Daily Thoughts</h1>
+
+<div class="firebase-status firebase-connected">
+    ✅ Connected to permanent database
+</div>
+
+<p>Logged in as: <strong th:text="${username}"></strong> | <a href="/logout">Logout</a></p>
+
+<form action="/submit" method="post">
+
+    <p class="feedback" th:text="${feedbackMessage}"></p>
+
+    <!-- Your box visible only to you -->
+    <div th:if="${username == 'you'}">
+        <label>Your Thought:</label>
+        <textarea name="yourThought" rows="4" placeholder="Write your thought..." required></textarea>
+    </div>
+
+    <!-- Her box visible only to her -->
+    <div th:if="${username == 'her'}">
+        <label>Her Thought:</label>
+        <textarea name="herThought" rows="4" placeholder="Write your thought..." required></textarea>
+    </div>
+
+    <button type="submit">Save Thought Permanently</button>
+</form>
+
+<div class="thoughts">
+    <h2>Thoughts History</h2>
+
+    <div th:if="${history == null or history.isEmpty()}">
+        <p>No thoughts yet. Be the first to share!</p>
+    </div>
+
+    <div th:each="entry : ${history}">
+        <div class="thought-item">
+            <p><strong th:text="${entry.key}">Date</strong></p>
+            <p><strong>Your Thought:</strong> <span th:text="${entry.value.yourThought}"></span></p>
+            <p><strong>Her Thought:</strong> <span th:text="${entry.value.herThought}"></span></p>
+            <hr>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

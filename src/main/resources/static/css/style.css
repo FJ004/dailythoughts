@@ -1,0 +1,139 @@
+/* ================== DIARY PAGE ================== */
+body.diary-page {
+    font-family: 'Arial', sans-serif;
+    background: #ffe6f0; /* light pink */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+body.diary-page h1 {
+    color: #d6336c;
+    margin-bottom: 20px;
+}
+
+body.diary-page form {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+body.diary-page form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+body.diary-page textarea {
+    width: 93%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d6336c;
+    font-size: 14px;
+    resize: none;
+}
+
+body.diary-page button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+body.diary-page button:hover {
+    background: #b52b58;
+}
+
+body.diary-page .feedback {
+    color: red;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+body.diary-page .thoughts {
+    margin-top: 20px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+body.diary-page .thoughts p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+body.diary-page .thoughts strong {
+    color: #d6336c;
+}
+
+/* ================== LOGIN PAGE ================== */
+body.login-page {
+    font-family: 'Arial', sans-serif;
+    background: #ffe6f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+body.login-page h1 {
+    color: #d6336c;
+    margin-bottom: 20px;
+}
+
+body.login-page form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+body.login-page input[type="text"],
+body.login-page input[type="password"] {
+    width: 93%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d6336c;
+    font-size: 14px;
+}
+
+body.login-page button {
+    background: #d6336c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+body.login-page button:hover {
+    background: #b52b58;
+}
+
+body.login-page p[th\\:text] {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
