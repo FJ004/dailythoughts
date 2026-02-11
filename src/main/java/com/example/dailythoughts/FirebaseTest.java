@@ -3,6 +3,7 @@ package com.example.dailythoughts;
 import com.google.firebase.database.FirebaseDatabase;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.DependsOn;
 
 @Component
 @DependsOn("firebaseInitializer") // ensures FirebaseInitializer runs first
