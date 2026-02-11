@@ -1,18 +1,24 @@
 package com.example.dailythoughts;
 
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
 @Component
+@DependsOn("firebaseInitializer") // ensures FirebaseInitializer runs first
 public class FirebaseTest {
 
-    @PostConstruct
-    public void testWrite() {
-        DatabaseReference ref =
-                FirebaseDatabase.getInstance().getReference("test");
+    private FirebaseDatabase db;
 
-        ref.setValueAsync("Firebase connected successfully ❤️");
+    @PostConstruct
+    public void init() {
+        // Lazy-load FirebaseDatabase only after FirebaseInitializer runs
+        db = FirebaseDatabase.getInstance();
+        System.out.println("✅ FirebaseTest ready!");
+    }
+
+    public void testWrite() {
+        db.getReference("test").setValueAsync("Hello from Railway!");
+        System.out.println("✅ Wrote test value to Firebase");
     }
 }
